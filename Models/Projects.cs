@@ -11,5 +11,6 @@ namespace Portfolio.Models
         public string ProjectName { get; set; }
         public string Description { get; set; }
         public string ImageURL { get; set; }
+        public string GithubURL { get; set; }
     }
 }
