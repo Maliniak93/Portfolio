@@ -12,5 +12,6 @@ namespace Portfolio.Models
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public string GithubURL { get; set; }
+        public bool StartCarouselProject { get; set; }
     }
 }

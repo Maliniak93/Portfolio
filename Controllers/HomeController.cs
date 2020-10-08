@@ -17,7 +17,8 @@ namespace Portfolio.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var projects = _context.Projects.ToList();
+            return View(projects);
         }
     }
 }

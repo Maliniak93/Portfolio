@@ -1,6 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Portfolio.Models.Projects>
 
 <section class="banner" id="home">
     <div class="textBx">
@@ -40,20 +38,29 @@
 <section class="projects" id="projects">
     <div id="ProjectsCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/project1.jpg" alt="Projekt 1">
-                <div class="carousel-caption">
-                    <h3>Projekt 1</h3>
-                    <p>Jest to 1 proejkt</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/project2.jpg" alt="Projekt 2">
-                <div class="carousel-caption">
-                    <h3>Projekt 2</h3>
-                    <p>Jest to 2 proejkt</p>
-                </div>
-            </div>
+            @foreach (var projects in Model)
+            {
+                @if (projects.StartCarouselProject == true)
+                {
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="@projects.ImageURL" alt="">
+                        <div class="carousel-caption">
+                            <h3>@projects.ProjectName</h3>
+                            <p>@projects.Description</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="@projects.ImageURL" alt="">
+                        <div class="carousel-caption">
+                            <h3>@projects.ProjectName</h3>
+                            <p>@projects.Description</p>
+                        </div>
+                    </div>
+                }
+            }
             <a class="carousel-control-prev" href="#ProjectsCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
                 <span class="sr-only">Precious</span>
