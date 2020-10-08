@@ -20,5 +20,10 @@ namespace Portfolio.Controllers
             var projects = _context.Projects.ToList();
             return View(projects);
         }
+        public IActionResult Project(int id)
+        {
+            var projects = _context.Projects.FirstOrDefault(x => x.Id == id);
+            return View(projects);
+        }
     }
 }
